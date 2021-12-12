@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "firetv",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "title": "Fire TV",
         "desc":                     {
             "en": "control Amazon Fire TV",
@@ -10,6 +10,10 @@
         },
         "platform": "Javascript/Node.js",
         "news": {
+            "1.0.1": {
+                "en": "Power on",
+                "de": "Power on"
+            },
             "1.0.0": {
                 "en": "compatibility for js-controller 3",
                 "de": "Kompatibilität für js-controller 3",
