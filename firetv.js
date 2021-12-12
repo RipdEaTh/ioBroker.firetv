@@ -527,12 +527,16 @@ FireTV.prototype.onStateChange = function (channel, state, val) {
             this.client.screencap(this.client.id, this.handleCallback.bind(this));
             break;
         case usedStateNames.swapPower.n:
-            this.shell("input keyevent " + adb.Keycode.KEYCODE_POWER);
+            if (val !== on) {
+                this.shell("input keyevent " + adb.Keycode.KEYCODE_HOME);
+            } else {
+                this.shell("input keyevent 223");
+            }
             return true;
         case 'power':
         case usedStateNames.on.n:
             this.getPowerState(function(on) {
-                if (val !== on) this.shell("input keyevent " + adb.Keycode.KEYCODE_POWER);
+                if (val !== on) this.shell("input keyevent " + adb.Keycode.KEYCODE_HOME);
             }.bind(this));
             break;
     }
