@@ -533,9 +533,11 @@ FireTV.prototype.onStateChange = function (channel, state, val) {
         case usedStateNames.on.n:
             this.getPowerState(function(on) {
                 if (val !== on) {
-                    adapter.log.debug("VAL: " + val);
-                    
-                    this.shell("input keyevent " + adb.Keycode.KEYCODE_HOME);
+                    if (val === true) {
+                        this.shell("input keyevent " + adb.Keycode.KEYCODE_HOME);
+                    } else {
+                        this.shell("input keyevent 223");
+                    }
                 }
             }.bind(this));
             break;
